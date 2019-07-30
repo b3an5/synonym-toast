@@ -21,7 +21,6 @@ export default {
   },
   methods: {
     async fetchSynonym(word) {
-      console.log(word);
       try {
         const result = await fetch(
           `https://dictionaryapi.com/api/v3/references/thesaurus/json/${word}?key=${apiKey}`
