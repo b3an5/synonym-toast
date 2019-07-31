@@ -11,7 +11,7 @@
 <script>
 import Form from "./components/Form.vue";
 import SynonymsContainer from "./components/SynonymsContainer";
-import { apiKey } from "./assets/apiKey";
+// import { apiKey } from "./assets/apiKey";
 
 export default {
   name: "app",
@@ -21,9 +21,10 @@ export default {
   },
   methods: {
     async fetchSynonym(word) {
+      console.log(process.env.VUE_APP_API_KEY);
       try {
         const result = await fetch(
-          `https://dictionaryapi.com/api/v3/references/thesaurus/json/${word}?key=${apiKey}`
+          `https://dictionaryapi.com/api/v3/references/thesaurus/json/${word}?key=${process.env.VUE_APP_API_KEY}`
         );
         const data = await result.json();
         this.synonyms = data[0].meta.syns.flat(1);
