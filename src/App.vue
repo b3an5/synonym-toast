@@ -21,7 +21,6 @@ export default {
   },
   methods: {
     async fetchSynonym(word) {
-      console.log(process.env.VUE_APP_API_KEY);
       try {
         const result = await fetch(
           `https://dictionaryapi.com/api/v3/references/thesaurus/json/${word}?key=${process.env.VUE_APP_API_KEY}`
